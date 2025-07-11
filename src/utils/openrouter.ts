@@ -20,7 +20,7 @@ export async function generateResponse(userMessage: string): Promise<string> {
         'X-Title': 'AI Billy Graham Chatbot',
       },
       body: JSON.stringify({
-        model: 'mistralai/devstral-small:free',
+      model="mistralai/devstral-small-2505:free',
         messages: [
           {
             role: 'system',
