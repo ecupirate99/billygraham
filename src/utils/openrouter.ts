@@ -20,7 +20,7 @@ export async function generateResponse(userMessage: string): Promise<string> {
         'X-Title': 'AI Billy Graham Chatbot',
       },
       body: JSON.stringify({
-          model: "qwen/qwen3-4b:free", // 
+        model: "deepseek/deepseek-r1-0528:free",
         messages: [
           {
             role: 'system',
@@ -37,6 +37,8 @@ export async function generateResponse(userMessage: string): Promise<string> {
     });
 
     if (!response.ok) {
+      const errorBody = await response.text();
+      console.error('API Error:', errorBody);
       throw new Error(`API request failed: ${response.status} ${response.statusText}`);
     }
 
